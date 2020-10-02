@@ -21,16 +21,6 @@ public class User_Story_1_Test_Suit {
     }
 
     @Test
-    public void User_Story_1_AC_1(){
-
-    }
-
-    @Test
-    public void User_Story_1_AC_2(){
-
-    }
-
-    @Test
     public void User_Story_1_AC_7(){
         //PRE-CONDITION
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
