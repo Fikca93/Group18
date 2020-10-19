@@ -1,6 +1,6 @@
 package com.assignment_5.user_story_1;
 
-import com.utilities.WebDriverFactory;
+import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -39,11 +39,6 @@ public class User_Story_1_AC_8 {
         Assert.assertTrue(topicTextBoxElement.isDisplayed(),"Topic text box is not displayed. Test FAILED!!!");
 
     }
-
-
-
-
-
 
     @AfterMethod
     public void afterMethod(){

@@ -6,13 +6,12 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
-import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.concurrent.TimeUnit;
 
-public class User_Story_2_AC_10 {
+public class User_Story_2_AC_3 {
     WebDriver driver;
 
     @BeforeMethod
@@ -25,20 +24,18 @@ public class User_Story_2_AC_10 {
         driver.findElement(By.xpath("//span[.='Task']")).click();
     }
 
-    @Test//US1_AC#10:  Users should be able to add mention by clicking on the Add mention icon and select contacts from the lists provided in dropdown.
-    public void add_Mention() throws InterruptedException {
-        //Click "More"
-        driver.findElement(By.xpath("//div[@data-bx-id='task-edit-additional-header']")).click();
+    @Test//Users should be able to click on the upload files icon to upload files and pictures from select documents from bitrix24, and create files to upload.
+    public void US2AC3() throws InterruptedException {
 
-        WebElement isDisplay = driver.findElement(By.xpath("//div[@data-bx-id='task-edit-unchosen-blocks']"));
-        System.out.println("isDisplay = " + isDisplay.isDisplayed());
-        Assert.assertTrue(isDisplay.isDisplayed(),"its not visible");
+        //Click "Upload file" icon
+        driver.findElement(By.xpath("//span[@id='bx-b-uploadfile-task-form-lifefeed_task_form']")).click();
+        Thread.sleep(3000);
+
+        driver.findElement(By.xpath("//input[@name='bxu_files[]']")).sendKeys("C:\\Users\\a9329\\Desktop\\myfile.txt");
+
+        WebElement actlyResul = driver.findElement(By.xpath("//span[.='myfile.txt']"));
+
+        Assert.assertTrue(actlyResul.isDisplayed());
+
     }
-
-    @AfterMethod
-    public void afterMethod(){
-        driver.manage().window().maximize();
-        //driver.close();
-    }
-
 }

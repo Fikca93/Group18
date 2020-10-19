@@ -1,6 +1,7 @@
 package com.assignment_5.user_story_2;
 
-import com.utilities.WebDriverFactory;
+
+import com.assignment_5.Utilities.WebDriverFactory;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -11,8 +12,8 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_2_AC_9 {
-
     WebDriver driver;
+
     @BeforeMethod
     public void setUpBrowser(){
         driver = WebDriverFactory.getDriver("chrome");
@@ -22,6 +23,7 @@ public class User_Story_2_AC_9 {
 
     }
     //Users can add Deadline, Time Planning by using date pickers.
+
     @Test
     public void TimePlanning() throws InterruptedException {
         driver.get("https://login2.nextbasecrm.com/?login=yes");
@@ -162,5 +164,7 @@ try {
         Thread.sleep(3000);
         driver.close();
     }
+
+
 
 }
