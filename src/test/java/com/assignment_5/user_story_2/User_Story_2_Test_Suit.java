@@ -108,23 +108,30 @@ public class User_Story_2_Test_Suit {
 
     @Test
     public void User_Story_2_AC_4() throws InterruptedException {
-        WebElement task = driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-tasks']"));
+        String helpDeskUserName = "Helpdesk18@cybertekschool.com";
+        String pass = "UserUser";
+
+        WebElement userLogin = driver.findElement(By.xpath("//input[@name='USER_LOGIN']"));
+        userLogin.sendKeys(helpDeskUserName);
+        WebElement password = driver.findElement(By.xpath("//input[@name='USER_PASSWORD']"));
+        password.sendKeys(pass);
+        WebElement loginSubmitBox = driver.findElement(By.xpath("//input[@class='login-btn']"));
+        loginSubmitBox.click();
         Thread.sleep(1000);
-        task.click();
-        Thread.sleep(1000);
-        WebElement Quotetext = driver.findElement(By.xpath("//span[@id='bx-b-quote-task-form-lifefeed_task_form']"));
+        //click on Activity Stream button
+        WebElement buttonActivityStream = driver.findElement(By.xpath("//a[@title='Activity Stream']/span[1]"));
+        buttonActivityStream.click();
+
+        WebElement taskButton = driver.findElement(By.xpath("//div[@class='feed-add-post-form-variants']//span[@id='feed-add-post-form-tab-tasks']"));
+        taskButton.click();
         Thread.sleep(3000);
-        Quotetext.click();
+        WebElement quotetext = driver.findElement(By.xpath("//div[@class='feed-add-post-form-but-wrap']//span[@id='bx-b-mention-task-form-lifefeed_task_form']"));
+        quotetext.click();
 
-        //   WebElement iframe = driver.findElement(By.xpath("//div[@id='bx-html-editor-iframe-cnt-lifefeed_task_form']"));
-        //   driver.switchTo().frame(iframe);
-        //   driver.switchTo().frame(2);
-        WebElement blockquote =  driver.findElement(By.xpath("//blockquote[@class='bxhtmled-quote']"));
-        //   blockquote.sendKeys("If everyone is moving forward together, then success takes care of itself.");
-        //    blockquote.submit();
-        //blockquote[@class='bxhtmled-quote']
 
-        Assert.assertTrue(blockquote.isDisplayed(),"Text is not dispalyed verification failed!!!");
+
+
+        Assert.assertTrue(quotetext.isDisplayed(),"Text is not dispalyed verification failed!!!");
 
     }
 

@@ -12,47 +12,53 @@ import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
 
 public class User_Story_1_AC_4 {
-        WebDriver driver;
+    WebDriver driver;
 
-        @BeforeMethod
-        public void setUpDriver() {
-            driver = WebDriverFactory.getDriver("Chrome");
-            driver.manage().window().maximize();
-            driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+    @BeforeMethod
+    public void setUpDriver() {
+        driver = WebDriverFactory.getDriver("Chrome");
+        driver.manage().window().maximize();
+        driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 
-        }
+    }
 
-        @Test
-        public void insertVideo() throws InterruptedException {
+    @Test
+    public void insertVideo() throws InterruptedException {
 
-            driver.get("https://login2.nextbasecrm.com/");
-            driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
-            driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
-            WebElement message = driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-message']"));
-            message.click();
-            Thread.sleep(1000);
-            WebElement insertVideo = driver.findElement(By.xpath("//span[@title='Insert video']"));
-            insertVideo.click();
-            Thread.sleep(1000);
-            WebElement videoSource = driver.findElement(By.xpath("//input[@placeholder='YouTube or Vimeo video URL']"));
+        driver.get("https://login2.nextbasecrm.com/");
+        driver.findElement(By.xpath("//input[@name='USER_LOGIN']")).sendKeys("helpdesk18@cybertekschool.com");
+        driver.findElement(By.xpath("//input[@name = 'USER_PASSWORD']")).sendKeys("UserUser"+ Keys.ENTER);
+        WebElement message = driver.findElement(By.xpath("//span[@id='feed-add-post-form-tab-message']"));
+        message.click();
+        Thread.sleep(1000);
+        WebElement insertVideo = driver.findElement(By.xpath("//span[@title='Insert video']"));
+        insertVideo.click();
+        Thread.sleep(1000);
+        WebElement videoSource = driver.findElement(By.xpath("//input[@placeholder='YouTube or Vimeo video URL']"));
 
-            Thread.sleep(1000);
-            videoSource.sendKeys("https://youtu.be/N-8QUdOdXls");
+        Thread.sleep(1000);
+        videoSource.sendKeys("https://youtu.be/N-8QUdOdXls");
 
-            Thread.sleep(3000);
-            WebElement save = driver.findElement(By.xpath("//input[@value='Save']"));
-            Thread.sleep(3000);
-            save.click();
-            WebElement messagesend = driver.findElement(By.xpath("//button[@id='blog-submit-button-save']"));
-            Thread.sleep(3000);
-            messagesend.click();
-        }
+        Thread.sleep(3000);
+        WebElement save = driver.findElement(By.xpath("//input[@value='Save']"));
+        Thread.sleep(3000);
+        save.click();
+        WebElement messagesend = driver.findElement(By.xpath("//button[@id='blog-submit-button-save']"));
+        Thread.sleep(3000);
+        messagesend.click();
+    }
 
-        @AfterMethod
-        public void closeWindow() {
-            //   driver.close();
-        }
+
+
+    @AfterMethod
+    public void closeWindow() {
+        //   driver.close();
+
+    }
+
+
 }
+
 
 
 
